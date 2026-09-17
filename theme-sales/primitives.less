@@ -1,0 +1,15 @@
+// プリミティブ層(Tier1)。config.js の primary/secondary/.../neutral と同じ構成・同じ値。
+// config.js は QuickJS サンドボックスで動き import できないため手動同期(= config.js <name> と記載)。
+// セマンティック層は style.less の --md-* ブロック(Tier2)、実際の使用箇所が Tier3。
+// 出典: Figma "Use — Sales" (j7CcpCLsMOFHLerQByT4ko, node 184:162)
+
+// --- ファミリー: 強度のはしご(濃→薄): deep / strong / base / soft / pale / mist ---
+@primary-deep: #0D65D9; @primary-strong: #3D84E1; @primary-base: #86B2EC; @primary-soft: #A8C8F1; @primary-pale: #CADDF7; @primary-mist: #E7F0FB;
+@secondary-deep: #7047C7; @secondary-strong: #8D6CD2; @secondary-base: #B8A3E3; @secondary-soft: #CCBDEB; @secondary-pale: #E0D7F3; @secondary-mist: #F1EDF9;
+@tertiary-deep: #0095B8; @tertiary-strong: #33AAC6; @tertiary-base: #80CADC; @tertiary-soft: #A3D9E5; @tertiary-pale: #C7E8EF; @tertiary-mist: #E5F4F8;
+@warning-deep: #F5A800; @warning-strong: #F7B933; @warning-base: #FAD480; @warning-soft: #FBE0A3; @warning-pale: #FDECC7; @warning-mist: #FEF6E5;
+@success-deep: #07945A; @success-strong: #39A97B; @success-base: #83CAAD; @success-soft: #A6D8C4; @success-pale: #C8E7DB; @success-mist: #E6F4EE;
+@danger-deep: #D83A45; @danger-strong: #E0616A; @danger-base: #EC9DA2; @danger-soft: #F1B8BC; @danger-pale: #F6D4D6; @danger-mist: #FBEBEC;
+
+// --- ニュートラル: 同じはしご(濃→薄)。ほぼ無彩色 ---
+@neutral-deep: #3E4652; @neutral-strong: #656B75; @neutral-base: #9FA3A9; @neutral-soft: #BABCC1; @neutral-pale: #D5D6D9; @neutral-mist: #ECEDEE; @neutral-white: #FFFFFF;
