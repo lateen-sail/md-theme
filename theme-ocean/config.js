@@ -7,6 +7,15 @@
   const danger = { deep: "#BE123C", strong: "#CB4163", base: "#DF899E", soft: "#E8AAB9", pale: "#F1CBD4", mist: "#F9E7EB" };
   const neutral = { deep: "#334A5E", strong: "#5C6E7E", base: "#99A4AF", soft: "#B6BEC5", pale: "#D2D7DC", mist: "#EBEDEF", white: "#FFFFFF" };
 
+  const cScalePalette = [primary.pale, warning.pale, secondary.pale, tertiary.pale, danger.pale, success.pale, primary.mist, warning.mist, secondary.mist, tertiary.mist, danger.mist];
+  const cScaleVars = cScalePalette.reduce((acc, color, i) => {
+    acc[`cScale${i}`] = color;
+    acc[`cScalePeer${i}`] = color;
+    acc[`cScaleInv${i}`] = color;
+    acc[`cScaleLabel${i}`] = neutral.strong;
+    return acc;
+  }, {});
+
   const cssVariables = `
       * {
         --diagram-bg: ${neutral.white};
@@ -47,7 +56,7 @@
   const mindmapCSS = `
       /* mindmap */
       .mindmap-node.section-root .node-bkg {
-        fill: var(--diagram-primary-deep) !important;
+        fill: var(--diagram-primary-mist) !important;
         stroke-width: 0px !important;
       }
 
@@ -91,32 +100,32 @@
       .sections .section-6 rect,
       .sections .section-11 rect {
         fill: var(--diagram-secondary-pale) !important;
-        stroke: var(--diagram-secondary-strong) !important;
+        stroke: var(--diagram-secondary-pale) !important;
       }
 
       .sections .section-2 rect,
       .sections .section-7 rect,
       .sections .section-12 rect {
         fill: var(--diagram-warning-pale) !important;
-        stroke: var(--diagram-warning-strong) !important;
+        stroke: var(--diagram-warning-pale) !important;
       }
 
       .sections .section-3 rect,
       .sections .section-8 rect {
         fill: var(--diagram-tertiary-pale) !important;
-        stroke: var(--diagram-tertiary-strong) !important;
+        stroke: var(--diagram-tertiary-pale) !important;
       }
 
       .sections .section-4 rect,
       .sections .section-9 rect {
         fill: var(--diagram-danger-pale) !important;
-        stroke: var(--diagram-danger-strong) !important;
+        stroke: var(--diagram-danger-pale) !important;
       }
 
       .sections .section-5 rect,
       .sections .section-10 rect {
-        fill: var(--diagram-primary-soft) !important;
-        stroke: var(--diagram-primary-soft) !important;
+        fill: var(--diagram-primary-mist) !important;
+        stroke: var(--diagram-primary-mist) !important;
       }
 
       .sections [class*="section-"] rect {
@@ -124,7 +133,7 @@
       }
 
       .sections [class*="section-"] text {
-        fill: var(--diagram-text) !important;
+        fill: var(--diagram-text-muted) !important;
       }
 
       .items .node rect,
@@ -177,6 +186,13 @@
 
       .task {
         stroke-width: 1px !important;
+      }`;
+
+  const radarCSS = `
+      /* radar-beta */
+      .radarGraticule {
+        fill: none !important;
+        fill-opacity: 0 !important;
       }`;
 
   const sequenceCSS = `
@@ -327,6 +343,7 @@
     treeViewCSS,
     sequenceCSS,
     ishikawaCSS,
+    radarCSS,
     timelineCSS,
     xyChartCSS,
     ganttCSS,
@@ -543,39 +560,7 @@
       "tagLabelBorder": warning.strong,
 
       /* mindmap, timeline, journey */
-      "cScale0": primary.pale,
-      "cScale1": warning.pale,
-      "cScale2": secondary.pale,
-      "cScale3": tertiary.pale,
-      "cScale4": danger.pale,
-      "cScale5": success.pale,
-      "cScale6": primary.base,
-      "cScale7": warning.base,
-      "cScale8": secondary.base,
-      "cScale9": tertiary.base,
-      "cScale10": primary.strong,
-      "cScalePeer0": primary.strong,
-      "cScalePeer1": warning.strong,
-      "cScalePeer2": secondary.strong,
-      "cScalePeer3": tertiary.strong,
-      "cScalePeer4": danger.strong,
-      "cScalePeer5": success.strong,
-      "cScalePeer6": primary.deep,
-      "cScalePeer7": primary.deep,
-      "cScalePeer8": secondary.deep,
-      "cScalePeer9": tertiary.deep,
-      "cScalePeer10": primary.base,
-      "cScaleLabel0": neutral.deep,
-      "cScaleLabel1": neutral.deep,
-      "cScaleLabel2": neutral.deep,
-      "cScaleLabel3": neutral.deep,
-      "cScaleLabel4": neutral.deep,
-      "cScaleLabel5": neutral.deep,
-      "cScaleLabel6": neutral.deep,
-      "cScaleLabel7": neutral.deep,
-      "cScaleLabel8": neutral.deep,
-      "cScaleLabel9": neutral.deep,
-      "cScaleLabel10": neutral.deep,
+      ...cScaleVars,
 
       /* quadrantChart */
       "quadrant1Fill": primary.mist,
