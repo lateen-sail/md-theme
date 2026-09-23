@@ -23,7 +23,7 @@
         --diagram-text: ${neutral.deep};
         --diagram-text-muted: ${neutral.strong};
         --diagram-title: ${neutral.strong};
-        --diagram-line: ${neutral.base};
+        --diagram-line: ${neutral.soft};
         --diagram-border-light: ${neutral.pale};
         --diagram-primary-deep: ${primary.deep};
         --diagram-primary-strong: ${primary.strong};
@@ -229,10 +229,6 @@
       .c4-shape ellipse,
       .c4-shape line {
         stroke-width: 1px !important;
-      }
-
-      .relation {
-        stroke: var(--diagram-line) !important;
       }
 
       .relationLabel {
@@ -502,8 +498,9 @@
       "relationColor": neutral.base,
 
       /* architecture-beta */
-      "archEdgeColor": neutral.base,
-      "archEdgeArrowColor": neutral.base,
+      "archEdgeColor": neutral.pale,
+      "archEdgeArrowColor": neutral.pale,
+      "archEdgeWidth": "2",
 
       /* pie */
       "pie1": primary.pale,
