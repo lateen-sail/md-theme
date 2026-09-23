@@ -392,6 +392,12 @@
       "quadrantExternalBorderStrokeWidth": 0.75,
       "quadrantInternalBorderStrokeWidth": 0.5
     },
+    "architecture": {
+      "fontSize": 12,
+      "iconSize": 80,
+      "padding": 20,
+      "nodeSeparation": 160
+    },
     "themeVariables": {
       /* all diagrams */
       "darkMode": false,
